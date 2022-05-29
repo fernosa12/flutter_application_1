@@ -25,10 +25,12 @@ class _MyAppState extends State<MyApp> {
       home: Scaffold(
         body: Column(
           children: [
-            Container(
-              alignment: Alignment.bottomCenter,
-              height: 200,
-              child: Text(bilangan),
+            Expanded(
+              child: Container(
+                alignment: Alignment.bottomRight,
+                padding: EdgeInsets.symmetric(horizontal: 20),
+                child: Text(bilangan),
+              ),
             ),
             Container(
               child: Row(
@@ -117,7 +119,19 @@ class _MyAppState extends State<MyApp> {
                     height: constraints.maxWidth / 4,
                     padding: EdgeInsets.all(8),
                     child: TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        String stringTerakhir =
+                            bilangan.substring(bilangan.length - 1);
+
+                        if (int.tryParse(stringTerakhir) == null) {
+                          String stringsecond =
+                              bilangan.substring(0, bilangan.length - 1);
+                          bilangan = stringsecond + "*";
+                        } else {
+                          bilangan = bilangan + "*";
+                        }
+                        setState(() {});
+                      },
                       child: Text(
                         '*',
                         style: TextStyle(color: Color(0xFF7CC9FF)),
@@ -184,7 +198,19 @@ class _MyAppState extends State<MyApp> {
                     height: constraints.maxWidth / 4,
                     padding: EdgeInsets.all(8),
                     child: TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        String stringTerakhir =
+                            bilangan.substring(bilangan.length - 1);
+
+                        if (int.tryParse(stringTerakhir) == null) {
+                          String stringsecond =
+                              bilangan.substring(0, bilangan.length - 1);
+                          bilangan = stringsecond + "-";
+                        } else {
+                          bilangan = bilangan + "-";
+                        }
+                        setState(() {});
+                      },
                       child: Text(
                         '-',
                         style: TextStyle(color: Color(0xFF7CC9FF)),
@@ -251,7 +277,20 @@ class _MyAppState extends State<MyApp> {
                     height: constraints.maxWidth / 4,
                     padding: EdgeInsets.all(8),
                     child: TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        String stringTerakhir =
+                            bilangan.substring(bilangan.length - 1);
+
+                        if (int.tryParse(stringTerakhir) == null) {
+                          String stringsecond =
+                              bilangan.substring(0, bilangan.length - 1);
+                          bilangan = stringsecond + "+";
+                        } else {
+                          bilangan = bilangan + "+";
+                        }
+
+                        setState(() {});
+                      },
                       child: Text(
                         '+',
                         style: TextStyle(color: Color(0xFF7CC9FF)),
